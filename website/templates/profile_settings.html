@@ -4,28 +4,30 @@
 <head>
    <title>User Settings</title>
 </head>
-
+<link rel="stylesheet" href="{{ url_for('static', filename='profile_settings.css') }}" />
 <body>
 
 <form action="/update_profile" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" value="John Doe" required>
+    <h1>User Settings</h1>
 
-    <label for="birthday">Birthday:</label>
-    <input type="date" id="birthday" name="birthday" value="1990-01-01" required>
+    <label class = field for="name">Name:</label>
+    <input type="text" id="name" name="name" value="John Doe" required> <br>
 
-    <label for="age">Age:</label>
-    <input type="number" id="age" name="age" value="30" required>
+    <label class = field for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday" value="1990-01-01" required><br>
 
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="location" value="New York" required>
+    <label class = field for="age">Age:</label>
+    <input type="number" id="age" name="age" value="30" required><br>
 
-    <label for="gender">Gender:</label>
+    <label class = field for="location">Location:</label>
+    <input type="text" id="location" name="location" value="New York" required><br>
+
+    <label class = field for="gender">Gender:</label>
     <select id="gender" name="gender" required>
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="other">Other</option>
-    </select>
+    </select><br><br>
 
     <!-- <form action="/personal_info" method="post"> -->
     <label for="preferences">Select Preferences:</label><br>
@@ -67,7 +69,7 @@
     <label for="sight-seeing">Sight-seeing</label><br>
     
     <input type="checkbox" id="gaming and puzzles" name="preferences[]" value="gaming and puzzles">
-    <label for="gaming and puzzles">Gaming and Puzzles</label><br>
+    <label for="gaming and puzzles">Gaming and Puzzles</label><br><br>
 
     
     </select>

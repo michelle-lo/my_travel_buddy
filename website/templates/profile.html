@@ -3,8 +3,11 @@
 <head>
     <title>Profile</title>
 </head>
+<link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}" />
 <body>
-    <div>
+<form>
+    <h1>Profile</h1>
+    <div class = signup>
         <h2>Name: [name]</h2>
         <h2>Birthday: [birthday]</h2>
         <h2>Age: [age]</h2>
@@ -14,7 +17,8 @@
         <h2>Dietary Restrictions: [dietaryRestrictions]</h2>
     </div>
     <div>
-        <button id="settingsButton">Settings</button>
+        <button class = loginBtn id="settingsButton">Settings</button>
     </div>
+</form>
 </body>
 </html>
