@@ -7,15 +7,20 @@ clienct = RecombeeClient('my-travel-buddy-dev', 'ucIdhtB7kLeuPRgrw7DUg8TAJLkgrkD
 
 client = recombee_api_client.Client('ucIdhtB7kLeuPRgrw7DUg8TAJLkgrkD3acfd2FDGInMm3x8PWGW1dyd3OaPvnoxh', 'my-travel-buddy-dev')
 
-trip_data = []
-# soemehow get the user profule values in the arrayL trips
-trip = ['email' = lwz9@case.edu, 'location' = Cleveland, 'birthday' = 2004-7-01, 'budget' = 1000, 'dietary_restrictions' = 'Vegetarian', 'start_date' = 2024-11-28, 'end_date' = 2024-11-30, 'preferences' = ['Creativity', 'Puzzles and Games']]
+# Define trip data
+trip = {
+    'email': 'lwz900@case.edu',
+    'location': 'Cleveland',
+    'birthday': '2008-07-01',
+    'budget': 1000,
+    'dietary_restrictions': 'Vegetarian',
+    'start_date': '2024-11-28',
+    'end_date': '2024-11-30',
+    'preferences': ['Creativity', 'Puzzles and Games']
+}
 
-r = AddPurchase(email = trip['email'], location = trip['location'], birthday = trip['birthday'], 
-    budget = trip['budget'], dietary_restrictions = trip['dietary_restrictions'], end_date = trip['end_date'], 
-    start_date = trip['start_date'], preferences = trip['preferences'], cascade_create = True)
-br = batch(r)
-client.send(br)
+# Set user values for the trip
+client.send(recombee_api_client.requests.SetUserValues(trip['email'], trip, cascade_create=True))
 
 
 
