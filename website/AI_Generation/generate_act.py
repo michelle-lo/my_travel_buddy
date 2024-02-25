@@ -12,9 +12,9 @@ trip_data = []
 # soemehow get the user profule values in the arrayL trips
 trip = [lwz9@case.edu, Cleveland, 2004-7-01, 1000, 'Vegetarian', 2024-11-28, 2024-11-30, ['Creativity', 'Puzzles and Games']]
 
-r = AddPurchase(email = interaction[email], location = interaction[location], birthday = interaction[birthday], 
-    budget = interaction[budget], dietary_restrictions = interaction[dietary_restrictions], end_date = interaction[end_date], 
-    start_date = interaction[start_date], preferences = interaction[preferences], cascade_create = True)
+r = AddPurchase(email = trip[email], location = trip[location], birthday = trip[birthday], 
+    budget = trip[budget], dietary_restrictions = trip[dietary_restrictions], end_date = trip[end_date], 
+    start_date = trip[start_date], preferences = trip[preferences], cascade_create = True)
 br = batch(r)
 client.send(br)
 
