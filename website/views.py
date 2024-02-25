@@ -4,6 +4,7 @@ from .models import PInfo, User, Trips, trip_participants
 import datetime, json
 from . import db
 from sqlalchemy.sql import select
+from website.AI_Generation.generate_gpt import gen_ai_plan
 
 views = Blueprint('views', __name__)
 
@@ -153,8 +154,10 @@ def join_group_display():
     return render_template("join_group_display.html")
 
 
-@views.route('/trip/<int:trip_id>')
+@views.route('/trip/<int:trip_id>', methods=['GET', 'POST'])
 def trip_detail(trip_id):
+    if request.method == "POST":
+        return redirect(url_for('views.gen_plan', trip_id=trip_id))
     trip = Trips.query.get_or_404(trip_id)
     stmt = select(trip_participants).where(
         (trip_participants.c.user_id == current_user.id) & (trip_participants.c.trip_id == trip.id)
@@ -178,3 +181,9 @@ def trip_detail(trip_id):
         tripType = trip.tripType,
         budget = trip.budget
     )
+
+    
+
+@views.route('/trip/<int:trip_id>/plan', methods=['GET', 'POST'])
+def gen_plan(trip_id):
+    return gen_ai_plan(trip_id)

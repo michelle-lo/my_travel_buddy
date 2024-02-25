@@ -4,7 +4,7 @@
 <head>
     <title>{{tripName}}</title>
 </head>
-<link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='trip.css') }}" />
 <body>
     <h1>{{tripName}}</h1>
     <div id="tripData">
@@ -23,10 +23,11 @@
             <li>{{ participant.first_name }}</li>
         {% endfor %}
     </ul>
-    <script>
 
-        // Add JavaScript code here to retrieve data and handle form submission
-    </script>
+    <form method="POST">
+        <button class="loginBtn" type="submit">Generate Itinerary</button>
+    </form>
+    
 </body>
 
 </html>
