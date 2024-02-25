@@ -57,7 +57,7 @@ h1 {
 }
 
 .loginBtn {
-    margin-top: 15px;
+    margin-top: 30px;
     height: 45px;
     width: 40%;
     border: none;
@@ -67,8 +67,8 @@ h1 {
     transition: .5s;
     font-size: 16px;
     color: white;
-    margin-left: 185px;
-
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 .loginBtn2 {
@@ -82,7 +82,9 @@ h1 {
     transition: .5s;
     font-size: 16px;
     color: white;
-    margin-left: 185px;
+
+    margin-left: 30%;
+    margin-right: 30%;
 
 }
 
