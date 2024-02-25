@@ -49,9 +49,10 @@ def personal_info():
         else:
             return redirect(url_for('views.dashboard'))
 
-        
+    return  render_template("get_personal_info.html", user=current_user)
 
-    return render_template("get_personal_info.html", user=current_user)
+
+    # return render_template("get_personal_info.html", user=current_user)
 #"<h1>Test</h1>"
 
 @login_required
