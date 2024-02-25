@@ -4,7 +4,7 @@ from .models import PInfo, User, Trips, trip_participants
 import datetime, json
 from . import db
 from sqlalchemy.sql import select
-from website.AI_Generation.generate_gpt import gen_ai_plan
+#from website.AI_Generation.generate_gpt import gen_ai_plan
 
 views = Blueprint('views', __name__)
 
@@ -186,4 +186,5 @@ def trip_detail(trip_id):
 
 @views.route('/trip/<int:trip_id>/plan', methods=['GET', 'POST'])
 def gen_plan(trip_id):
-    return gen_ai_plan(trip_id)
+    return "hello"
+    #return gen_ai_plan(trip_id)
