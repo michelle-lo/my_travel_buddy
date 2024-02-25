@@ -17,6 +17,7 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(150))
     notes = db.relationship('Note') #Note is the other class, capital needed
     pinfo = db.relationship('PInfo')
+    trips = db.relationship('Trips')
 
     def __repr__(self):
         return f"User(id={self.id}, email={self.email}, password={self.password}, first_name={self.first_name}, last_name={self.last_name})"
@@ -29,3 +30,16 @@ class PInfo(db.Model):
     gender = db.Column(db.String(10))
     preferences = db.Column(db.Text)
     diet = db.Column(db.String(20))
+
+
+class Trips(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True, autoincrement_start=1000)
+    tripName = db.Column(db.String(100))
+    groupLeader_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    groupLeader_name = db.Column(db.String(100))
+    startDate = db.Column(db.Date)
+    endDate = db.Column(db.Date)
+    location = db.Column(db.String(100))
+    tripType = db.Column(db.String(100))
+    budget = db.Column(db.BigInteger())
+
