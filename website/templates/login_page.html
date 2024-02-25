@@ -65,12 +65,10 @@
         <div class="signup">
             Don't have an account?
             </br>
-            <a href="#">Sign up</a>
+            <a href="{{ url_for('auth.sign_up') }}">Sign up</a>
         </div>
 
-        <div>
-            {{ login_message }}
-        </div>
+
     </form>
     <script
     src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

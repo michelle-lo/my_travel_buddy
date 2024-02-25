@@ -7,9 +7,16 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
 
 <body>
-  <form>
+  
+    <form action="{{ url_for('auth.login') }}" method="get">
+
     <h1>MY TRAVEL BUDDY</h1>
+    
     <div class="container">
+      
+      <div>
+        <button type="submit" value="Sign In" class="signin">Login</button>
+      </div>
 
       <div class="textinfo">
         <h2>Your Ultimate Adventure Architect: Where Every Journey Begins!</h2>
@@ -22,9 +29,9 @@
       </div>
       <img src="static/Logo.png" alt="Logo" class="logo">
     </div>
-  </form>
-  <div>
-    <input type="submit" value="Sign In" class="signin">
+
+    
+    </form>
   </div>
 </body>
 
