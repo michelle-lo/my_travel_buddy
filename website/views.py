@@ -54,3 +54,11 @@ def trip():
 def create_new():
     return render_template("create_new.html")
 #"<h1>Test</h1>"
+
+@views.route('/join_group')
+def join_group():
+    return render_template("join_group.html")
+
+@views.route('/join_group_display')
+def join_group_display():
+    return render_template("join_group_display.html")
