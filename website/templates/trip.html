@@ -7,22 +7,25 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='trip.css') }}" />
 <body>
     <h1>{{tripName}}</h1>
-    <div id="tripData">
-        <h2>Trip ID: {{tripID}}</h2>
-        <h2>Group Leader: {{groupLeader}}</h2>
-        <h2>Start Date: {{startDate}}</h2>
-        <h2>End Date: {{endDate}}</h2>
-        <h2>Location: {{location}}</h2>
-        <h2>Trip Type: {{tripType}}</h2>
-        <h2>Estimated Budget per Person: {{budget}}</h2>
-    </div>
-
-    <h2>Participants:</h2>
-    <ul>
-        {% for participant in trip.participants %}
+    <form>
+        <div id="tripData">
+            <h2>Trip ID: {{tripID}}</h2>
+            <h2>Group Leader: {{groupLeader}}</h2>
+            <h2>Start Date: {{startDate}}</h2>
+            <h2>End Date: {{endDate}}</h2>
+            <h2>Location: {{location}}</h2>
+            <h2>Trip Type: {{tripType}}</h2>
+            <h2>Estimated Budget per Person: {{budget}}</h2>
+        </div>
+        <h2>Participants:</h2>
+        <ul>
+            {% for participant in trip.participants %}
             <li>{{ participant.first_name }}</li>
-        {% endfor %}
-    </ul>
+            {% endfor %}
+        </ul>
+    </form>
+
+    
 
     <form method="POST">
         <button class="loginBtn" type="submit">Generate Itinerary</button>
