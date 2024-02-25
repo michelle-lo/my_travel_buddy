@@ -1,5 +1,5 @@
 * {
-    font-family: 'Optima', sans-serif;
+    font-family: 'Georgia', serif;
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -9,13 +9,13 @@
 body {
     min-height: 100vh;
     background: linear-gradient(135deg, #f8b08f, #ef856b, #774162);
-    padding: 30px, 30px, 30px, 30px;
+
 }
 
 form {
     background: rgba(255, 208, 180, 0.808);
-    height: 500px;
-    width: 800px;
+    height: 580px;
+    width: 350px;
     padding: 75px 50px;
     position: absolute;
     left: 50%;
@@ -27,20 +27,30 @@ h1 {
     text-align: center;
     margin-bottom: 45px;
     color: #fff;
-    font-size: 60px;
+    font-size: 40px;
 }
 
-p {
-    text-align: center;
-    margin-bottom: 45px;
-    color: #fff;
+.textbox {
+    border-bottom: 2px solid white;
+    position: relative;
+    margin: 35px 0;
+}
+
+.textbox input {
+    width: 100%;
     font-size: 20px;
-
+    color: white;
+    border: none;
+    outline: none;
+    background: none;
 }
 
+.loginBtn:hover {
+    background-position: right;
+    font-size: 17px;
+}
 
-
-.plan_event {
+.loginBtn {
     height: 45px;
     width: 100%;
     border: none;
@@ -50,22 +60,9 @@ p {
     transition: .5s;
     font-size: 16px;
     color: white;
-    text-align: center;
-    justify-content: center;
-
 }
 
-.signin {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    background-color: #3498db;
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.signup {
+    color: white;
+    text-align: center;
 }
