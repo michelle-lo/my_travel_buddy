@@ -14,7 +14,7 @@ body {
 
 form {
     background: rgba(255, 208, 180, 0.808);
-    height: 1300px;
+    height: 950px;
     width: 350px;
     padding: 75px 50px;
     position: absolute;
@@ -24,7 +24,7 @@ form {
 }
 
 h1 {
-    margin-top: 30px;
+    margin-top: 15px;
     text-align: center;
     margin-bottom: 45px;
     color: #fff;
