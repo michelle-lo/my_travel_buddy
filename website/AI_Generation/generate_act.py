@@ -1,7 +1,6 @@
 import recombee_api_client
 from recombee_api_client.api_client import RecombeeClient, Region
 from recombee_api_client.api_requests import *
-import
 
 
 clienct = RecombeeClient('my-travel-buddy-dev', 'ucIdhtB7kLeuPRgrw7DUg8TAJLkgrkD3acfd2FDGInMm3x8PWGW1dyd3OaPvnoxh')
@@ -10,11 +9,11 @@ client = recombee_api_client.Client('ucIdhtB7kLeuPRgrw7DUg8TAJLkgrkD3acfd2FDGInM
 
 trip_data = []
 # soemehow get the user profule values in the arrayL trips
-trip = [lwz9@case.edu, Cleveland, 2004-7-01, 1000, 'Vegetarian', 2024-11-28, 2024-11-30, ['Creativity', 'Puzzles and Games']]
+trip = ['email' = lwz9@case.edu, 'location' = Cleveland, 'birthday' = 2004-7-01, 'budget' = 1000, 'dietary_restrictions' = 'Vegetarian', 'start_date' = 2024-11-28, 'end_date' = 2024-11-30, 'preferences' = ['Creativity', 'Puzzles and Games']]
 
-r = AddPurchase(email = trip[email], location = trip[location], birthday = trip[birthday], 
-    budget = trip[budget], dietary_restrictions = trip[dietary_restrictions], end_date = trip[end_date], 
-    start_date = trip[start_date], preferences = trip[preferences], cascade_create = True)
+r = AddPurchase(email = trip['email'], location = trip['location'], birthday = trip['birthday'], 
+    budget = trip['budget'], dietary_restrictions = trip['dietary_restrictions'], end_date = trip['end_date'], 
+    start_date = trip['start_date'], preferences = trip['preferences'], cascade_create = True)
 br = batch(r)
 client.send(br)
 
