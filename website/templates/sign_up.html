@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Travel Buddy Sign up</title>
+</head>
+
+<body>
+    <form method="POST">
+        <h1>Register</h1>
+        <link rel="stylesheet" href="{{ url_for('static', filename='login_page.css') }}" />
+        <div class="textbox">
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="Enter email">
+            </input>
+        </div>
+
+        <div class="textbox">
+            <input 
+                type="text" 
+                id="firstName" 
+                name="firstName" 
+                placeholder="Enter first name">
+            </input>
+        </div>
+        
+        <div class="textbox">
+            <input 
+                type="text" 
+                id="lastName" 
+                name="lastName" 
+                placeholder="Enter last name">
+            </input>
+        </div>
+
+        <div class="textbox">
+            <input 
+                type="password" 
+                id="password1" 
+                name="password1" 
+                placeholder="Enter password">
+            </input>
+        </div>
+
+        <div class="textbox">
+            <input 
+                type="password" 
+                id="password2" 
+                name="password2" 
+                placeholder="Confirm password">
+            </input>
+        </div>
+       
+        
+        <button type="submit" value="submit" class="loginBtn">Register</button>
+
+    </form>
+</body>
+
+</html>

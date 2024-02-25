@@ -10,12 +10,23 @@
         <h1>Login</h1>
         <link rel="stylesheet" href="{{ url_for('static', filename='login_page.css') }}" />
         <div class="textbox">
-            <input type="text" placeholder="User">
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="Enter email">
+            </input>
         </div>
         <div class="textbox">
-            <input type="password" placeholder="Password">
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="Enter password">
+            </input>
         </div>
-        <input type="submit" value="Login" class="loginBtn">
+        <button type="submit" value="Login" class="loginBtn">Login</button>
+        
         <div class="signup">
             Don't have an account?
             </br>
