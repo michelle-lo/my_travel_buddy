@@ -1,11 +1,27 @@
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request, flash, redirect, url_for
+from .models import User
+from werkzeug.security import generate_password_hash, check_password_hash
+from . import db
 
 auth = Blueprint('auth', __name__)
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
-    data = request.form
-    print(data)
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        print(email)
+        user = User.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                #log in success
+                print("success")
+            else:
+                print("fail")
+                # in correct password
+        else:
+            print("email doesn't exist")
+            # user does not exist
     return render_template("login_page.html")
 
 @auth.route('/logout')
@@ -16,26 +32,32 @@ def logout():
 def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')
-        firstName = request.form.get('firstName')
-        lastName = request.form.get('lastName')
+        first_name = request.form.get('firstName')
+        last_name = request.form.get('lastName')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
-        #implement later
-        # if len(email) < 4:
-        #     flash("Email invalid", category="error")
-        # elif len(firstName) < 2:
-        #     flash("First name invalid", category="error")
-        # elif len(lastName) < 2:
-        #     flash("Last name invalid", category="error")
-        # elif password1 != password2:
-        #     flash("Passwords must match", category="error")
-        # elif len(password1) < 7:
-        #     flash("Password invalid", category="error")
-        # else:
-        #     flash("Success", category="success")
+        if len(email) < 4:
+            flash("Email invalid", category="error")
+        elif len(first_name) < 2:
+            flash("First name invalid", category="error")
+        elif len(last_name) < 2:
+            flash("Last name invalid", category="error")
+        elif password1 != password2:
+            flash("Passwords must match", category="error")
+        elif len(password1) < 7:
+            flash("Password must be at least 7 characters", category="error")
+        else:
+            flash("Account created", category="success")
+
+
+        # new_user = User(email=email, first_name=first_name, last_name=last_name, password=generate_password_hash(password1, method='pbkdf2:sha256'))
+        # db.session.add(new_user)
+        # db.session.commit()
+        # return redirect(url_for('views.home'))
+
         
             #something happens
     
-    return render_template("sign_up.html", boolean=True)
+    return render_template("sign_up.html")
 
