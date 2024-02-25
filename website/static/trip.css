@@ -11,9 +11,8 @@ body {
     background: linear-gradient(135deg, #f8b08f, #ef856b, #774162);
 
 }
-/* 
+
 form {
-    background: rgba(255, 208, 180, 0.808);
     height: 580px;
     width: 350px;
     padding: 75px 50px;
@@ -21,9 +20,10 @@ form {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-} */
+}
 
 h1 {
+    margin-top: 100px;
     text-align: center;
     margin-bottom: 10px;
     color: #fff;
@@ -60,16 +60,18 @@ h2{
 }
 
 .loginBtn {
-    margin-top: 20px;
+    margin-top: 250px;
     height: 45px;
-    width: 100%;
+    width: 40%;
     border: none;
     outline: none;
-    background: linear-gradient(45deg, #f28080, #fba18f);
+    background: linear-gradient(45deg, #d22c2c, #ff5b3a);
     background-size: 200%;
     transition: .5s;
     font-size: 16px;
     color: white;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 .signup {
