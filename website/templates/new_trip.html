@@ -6,9 +6,13 @@
     <title>Add Occasion</title>
 </head>
 <body>
-    <form>
-        <button>Create New Occasion</button>
-        <button>Join Occasion</button>
+    <form action="{{ url_for('views.create_new') }}" method="get">
+        <button type="submit" value="create_trip">Create New</button>
     </form>
+
+    <form action="{{ url_for('views.join_group') }}" method="get">
+        <button type="submit" value="join_group">Join Event</button>
+    </form>
+
 </body>
 </html>
