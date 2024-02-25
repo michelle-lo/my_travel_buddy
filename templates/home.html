@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title> My Travel Buddy</title>
-  </head>
-  <body>
-    big bruh
-  </body>
+
+<head>
+  <title>My Travel Buddy Login</title>
+</head>
+
+<body>
+  <form>
+    <h1>Login</h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
+    <div class="textbox">
+      <input type="text" placeholder="User">
+    </div>
+    <div class="textbox">
+      <input type="password" placeholder="Password">
+    </div>
+    <input type="submit" value="Login" class="login">
+    <div class="signup">
+      Don't have an account?
+      </br>
+      <a href="#">Sign up</a>
+    </div>
+  </form>
+</body>
+
 </html>
