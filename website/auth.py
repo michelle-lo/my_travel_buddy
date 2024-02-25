@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
+from .models import User, PInfo
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user
@@ -13,11 +13,17 @@ def login():
         password = request.form.get('password')
         print(email)
         user = User.query.filter_by(email=email).first()
+        user_info = PInfo.query.filter_by(email=email).first()
+        print(user_info)
         if user:
             if user.password == password:
                 flash('Logged in successfully', category='success')
                 login_user(user, remember=True)
+                # user_info = PInfo.query.filter_by(email=email).first()
+                # if not user_info:
+                print("here")
                 return redirect(url_for('views.personal_info'))
+                
             else:
                 flash('Incorrect password, try again', category='error')
         else:
@@ -60,7 +66,7 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
                             
-            return redirect(url_for('views.personal_info'))
+            return redirect(url_for('auth.login'))
 
         
         

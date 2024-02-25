@@ -8,7 +8,7 @@
 <body>
     <h1>Create new Trip</h1>
     <link rel="stylesheet" href="{{ url_for('static', filename='create_new.css') }}" />
-    <form>
+    <form method="POST">
         <div>
             <label for="tripName">Trip Name:</label>
             <input type="text" id="tripName" name="tripName" required><br><br>
@@ -39,17 +39,6 @@
     <div id="randomCode"></div>
 
 
-    <script>
-        function generateRandomCode() {
-            var randomCode = Math.floor(Math.random() * 16777215).toString(16);
-            document.getElementById("randomCode").innerHTML = "Send this code to your friends to invite them to your trip:" + randomCode;
-        }
-
-        document.querySelector("form").addEventListener("submit", function (event) {
-            event.preventDefault();
-            generateRandomCode();
-        });
-    </script>
 </body>
 
 </html>

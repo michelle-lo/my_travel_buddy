@@ -10,10 +10,9 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}" />
 
 <body>
-    <form action="{{ url_for('views.profile') }}" method="get">
+    <form action="{{ url_for('views.profile', email=user.email) }}" method="get"> 
         <button class=loginBtn type="submit" value="profile">Profile</button>
     </form>
-    <form action="{{ url_for('views.new_trip') }}" method="get">
     <form action="{{ url_for('views.new_trip') }}" method="get">
         <button class=loginBtn type="submit" value="new_trip">New Trip</button>
     </form>

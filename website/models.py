@@ -24,6 +24,7 @@ class User(db.Model, UserMixin):
     
 class PInfo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     birthday = db.Column(db.Date)
     location = db.Column(db.String(100))
