@@ -12,7 +12,10 @@ class Note(db.Model):
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
-    password = db.column(db.String(150))
-    first_name = db.column(db.String(150))
-    last_name = db.column(db.String(150))
+    password = db.Column(db.String(150))
+    first_name = db.Column(db.String(150))
+    last_name = db.Column(db.String(150))
     notes = db.relationship('Note') #Note is the other class, capital needed
+
+    def __repr__(self):
+        return f"User(id={self.id}, email={self.email}, password={self.password}, first_name={self.first_name}, last_name={self.last_name})"
