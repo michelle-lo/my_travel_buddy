@@ -1,5 +1,5 @@
 import pathlib
-import textwrap
+import textwrap, markdown
 
 import google.generativeai as genai
 
@@ -7,9 +7,36 @@ from IPython.display import display
 from IPython.display import Markdown
 
 
-def to_markdown(text):
-  text = text.replace('•', '  *')
-  return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
+
+GOOGLE_API_KEY='AIzaSyBav2Nu9GG7MF9S-nkbwM3qENRIAs-7BcY'
+
+genai.configure(api_key=GOOGLE_API_KEY)
+
+model = genai.GenerativeModel('gemini-pro')
+
+def gen_ai_plan(budget, location, prefs, birthday):
+    #Define trip data
+    tripInfo = {
+        'location': location,
+        'birthday': '2008-07-01',
+        'budget': budget,
+        'preferences': prefs,
+        'birthday': birthday
+    }
+
+    # Create a prompt with the trip data
+    prompt = f"Generate 10 activity suggestions for a trip with estimated budget per activity:\n People born on this date:{tripInfo['birthday']} \nLocation: {tripInfo['location']}\nBudget: {tripInfo['budget']}\nPreferences: {', '.join(tripInfo['preferences'])}"
+
+    response = model.generate_content(prompt)
+
+    text = ""
+    for candidate in response.candidates:
+        for part in candidate.content.parts:
+            text += part.text + "\n"
+
+    return text
+
+
 
 # import openai
 # # from openai import OpenAI

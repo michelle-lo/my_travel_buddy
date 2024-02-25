@@ -4,7 +4,7 @@ from .models import PInfo, User, Trips, trip_participants
 import datetime, json
 from . import db
 from sqlalchemy.sql import select
-#from website.AI_Generation.generate_gpt import gen_ai_plan
+from website.AI_Generation.generate_gpt import gen_ai_plan
 
 views = Blueprint('views', __name__)
 
@@ -186,5 +186,35 @@ def trip_detail(trip_id):
 
 @views.route('/trip/<int:trip_id>/plan', methods=['GET', 'POST'])
 def gen_plan(trip_id):
-    return "hello"
-    #return gen_ai_plan(trip_id)
+    #return "hello"
+        # 'email': 'lwz900@case.edu',
+        # 'location': 'Cleveland',
+        # 'birthday': '2008-07-01',
+        # 'budget': 1000,
+        # 'dietary_restrictions': 'Vegetarian',
+        # 'start_date': '2024-11-28',
+        # 'end_date': '2024-11-30',
+        # 'preferences': ['Creativity', 'Puzzles and Games']
+
+    # stmt = select(Trips).where(
+    #     (Trips.id == trip_id)
+    # )
+    # participants = db.session.execute(stmt).fetchall()
+    trip = Trips.query.filter_by(id=trip_id).first()
+    print(trip.participants)
+    if trip:
+        budget = str(trip.budget)
+        location = str(trip.location)
+        type = str(trip.tripType)
+        group_leader_id = trip.groupLeader_id
+        group_leader_info = PInfo.query.filter_by(user_id=group_leader_id).first()
+        prefs = str(group_leader_info.preferences)
+        birthday = str(group_leader_info.birthday)
+        response = (gen_ai_plan(budget, location, prefs, birthday))
+        return response
+    else:
+        return None
+    
+    print(str(participants))
+    # print(gen_ai_plan(trip_id))
+    return "hwllo"
