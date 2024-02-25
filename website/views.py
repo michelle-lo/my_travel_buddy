@@ -1,8 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_user, login_required, logout_user, current_user
-from .models import PInfo, User, Trips
+from .models import PInfo, User, Trips, trip_participants
 import datetime, json
 from . import db
+from sqlalchemy.sql import select
 
 views = Blueprint('views', __name__)
 
@@ -105,17 +106,30 @@ def create_new():
         print(groupLeader_id)
         print(groupLeader_name)
 
+        # new_participant = trip_participants.insert().values(user_id=user_id, trip_id=trip_id)
+        # db.session.execute(new_participant)
+        # db.session.commit()
+
         db.session.add(new_trip)
         db.session.commit()
+
         return redirect(url_for('views.trip_detail', trip_id=new_trip.id))
     return render_template("create_new.html", user=current_user)
 #"<h1>Test</h1>"
 
-@views.route('/join_group')
+@views.route('/join_group', methods=['GET', 'POST'])
 def join_group():
+    if request.method == "POST":
+        trip_id = request.form['trip_id']
+        print(trip_id)
+        trip = Trips.query.get(trip_id)
+        if trip:
+            return redirect(url_for('views.trip_detail', trip_id=trip.id))
+        else:
+            return "Trip ID does not exist."
     return render_template("join_group.html")
 
-@views.route('/join_group_display')
+@views.route('/join_group_display', )
 def join_group_display():
     return render_template("join_group_display.html")
 
@@ -123,4 +137,25 @@ def join_group_display():
 @views.route('/trip/<int:trip_id>')
 def trip_detail(trip_id):
     trip = Trips.query.get_or_404(trip_id)
-    return render_template('trip.html', trip=trip)
+    stmt = select(trip_participants).where(
+        (trip_participants.c.user_id == current_user.id) & (trip_participants.c.trip_id == trip.id)
+    )
+    existing_participant = db.session.execute(stmt).fetchone()
+    if not existing_participant:
+        new_participant = trip_participants.insert().values(user_id=current_user.id, trip_id=trip.id)
+        db.session.execute(new_participant)
+        db.session.commit()
+
+    print(trip.participants)
+    return render_template(
+        'trip.html', 
+        trip=trip,
+        tripID = trip.id,
+        groupLeader = trip.groupLeader_name,
+        tripName = trip.tripName,
+        startDate = trip.startDate,
+        endDate = trip.endDate,
+        location = trip.location,
+        type = trip.tripType,
+        budget = trip.budget
+    )

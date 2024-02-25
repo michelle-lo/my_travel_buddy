@@ -42,4 +42,10 @@ class Trips(db.Model):
     location = db.Column(db.String(100))
     tripType = db.Column(db.String(100))
     budget = db.Column(db.BigInteger())
+    participants = db.relationship('User', secondary='trip_participants', backref='trips_joined')
+
+trip_participants = db.Table('trip_participants',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+    db.Column('trip_id', db.Integer, db.ForeignKey('trips.id'), primary_key=True)
+)
 
