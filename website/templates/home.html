@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>My Travel Buddy</title>
-  </head>
-  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
-  <body>
-    <form>
-      <h1>MY TRAVEL BUDDY</h1>
-      <h2>Your Ultimate Adventure Architect: Where Every Journey Begins!</h2>
+<head>
+  <title>My Travel Buddy</title>
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
 
-      <p>
-        Welcome to My Travel Buddy! <br>
-        We brainstorm activities and events for your next trip or hangout so that you don't have to.
-        Create your perfect trip itinerary with us today!
-      </p>
-      <img src="static/Logo.png" alt="Logo">
-      <input type="submit" value="Plan an Event" class="plan_event">
-    </form>
-    <div>
-      <input type="submit" value="Sign In" class="signin">
+<body>
+  <form>
+    <h1>MY TRAVEL BUDDY</h1>
+    <div class="container">
+
+      <div class="textinfo">
+        <h2>Your Ultimate Adventure Architect: Where Every Journey Begins!</h2>
+        <p>
+          Welcome to My Travel Buddy!
+          We brainstorm activities and events for your next trip or hangout so that you don't have to.
+          Create your perfect trip itinerary with us today!
+        </p>
+        <input type="submit" value="Plan an Event" class="plan_event">
+      </div>
+      <img src="static/Logo.png" alt="Logo" class="logo">
     </div>
-  </body>
+  </form>
+  <div>
+    <input type="submit" value="Sign In" class="signin">
+  </div>
+</body>
 
 
 </html>
