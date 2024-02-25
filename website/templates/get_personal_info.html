@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Profile</title>
+</head>
+
+
+<body>
+    <form method="POST">
+        <h1>Profile Creation</h1>
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='login_page.css') }}" /> -->
+
+        <div class="textbox">
+            <input type="date" id="birthday" name="birthday" placeholder="Enter Birthday">
+            </input>
+        </div>
+
+        <div class="textbox">
+            <input type="text" id="country" name="country" placeholder="Enter Country">
+            </input>
+        </div>
+
+        <div class="textbox">
+            <label for="gender">Select your gender:</label>
+            <select id="gender" name="gender">
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="textbox">
+            <label for="preferences">Select Preferences:</label>
+            <select id="preferences" name="preferences []" multiple>
+                <option value="creativity">Creativity</option>
+                <option value="outdoor">Outdoor</option>
+                <option value="relaxation">Relaxation</option>
+                <option value="adventure">Adventure</option>
+                <option value="culture">Culture</option>
+                <option value="food">Food</option>
+                <option value="nightlife">Nightlife</option>
+                <option value="shopping">Shopping</option>
+                <option value="sports">Sports</option>
+                <option value="entertainment and media">Entertainment and Media</option>
+                <option value="learning">Learning</option>
+                <option value="sight-seeing">Sight-seeing</option>
+                <option value="gaming and puzzles">Gaming and Puzzles</option>
+
+            </select>
+            <!-- <input type="submit" value="Submit"> -->
+        </div>
+        <div class="textbox">
+            <label for="diatery restrictions">Select your diatery restrictions:</label>
+            <select id="diet" name="diet">
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="gluten-free">Gluten-free</option>
+                <option value="lactose-free">Lactose-free</option>
+                <option value="halal">Halal</option>
+                <option value="kosher">Kosher</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <button type="submit" value="submit" class="loginBtn">Submit</button>
+
+
+
+    </form>
+</body>
+
+</html>
