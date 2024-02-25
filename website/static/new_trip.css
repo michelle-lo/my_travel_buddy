@@ -8,11 +8,11 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8b08f, #ef856b, #774162);
+    background: linear-gradient(135deg, #fbddd0, #ffc8bb);
 
 }
 
-form {
+/* form {
     background: rgba(255, 208, 180, 0.808);
     height: 400px;
     width: 350px;
@@ -21,17 +21,22 @@ form {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 h1 {
     text-align: center;
     margin-top: 15px;
-    margin-bottom: 15px;
-    color: #fff;
+    color: #fa5a5a;
     font-size: 40px;
 }
 
 .textbox {
+    border-bottom: 2px solid white;
+    position: relative;
+    margin: 35px 0;
+}
+
+.textbox2 {
     border-bottom: 2px solid white;
     position: relative;
     margin: 35px 0;
@@ -54,7 +59,7 @@ h1 {
 .loginBtn {
     margin-top: 15px;
     height: 45px;
-    width: 100%;
+    width: 40%;
     border: none;
     outline: none;
     background: linear-gradient(45deg, #f28080, #fba18f);
@@ -62,9 +67,37 @@ h1 {
     transition: .5s;
     font-size: 16px;
     color: white;
+    margin-left: 185px;
+
+}
+
+.loginBtn2 {
+    margin-top: 80px;
+    height: 45px;
+    width: 40%;
+    border: none;
+    outline: none;
+    background: linear-gradient(45deg, #f28080, #fba18f);
+    background-size: 200%;
+    transition: .5s;
+    font-size: 16px;
+    color: white;
+    margin-left: 185px;
+
 }
 
 .signup {
     color: white;
     text-align: center;
+}
+
+.back {
+    background: rgba(255, 208, 180, 0.808);
+    height: 400px;
+    width: 350px;
+    padding: 75px 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -5,13 +5,23 @@
 <head>
     <title>Add Trip</title>
 </head>
-<link rel="stylesheet" href="{{ url_for('static', filename='join_group.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='new_trip.css') }}" />
 <body>
-    <form action="{{ url_for('views.create_new') }}" method="get">
-        <h1>Add Trip</h1>
-        <button class = loginBtn type="submit" value="create_trip">Create New</button>
-        <button class = loginBtn type="submit" value="join_group">Join Event</button>
+    
+    <h1>Add Trip</h1>
+    
+  
+    
+    <form action="{{ url_for('views.create_new') }}" method="get" >
+        <button class=loginBtn type="submit" value="create_trip">Create
+            New</button>
     </form>
+    <form action="{{ url_for('views.join_group') }}" method="get">
+        <button class=loginBtn2 type="submit" value="join_group">Join
+            Event</button>
+    </form>
+    
+    
 
 </body>
 </html>
