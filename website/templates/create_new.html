@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create new Trip</title>
+</head>
+
+<body>
+    <h1>Create new Trip</h1>
+
+    <form>
+        <label for="tripName">Trip Name:</label>
+        <input type="text" id="tripName" name="tripName" required><br><br>
+
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required><br><br>
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required><br><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <label for="tripType">Trip Type:</label>
+        <select id="tripType" name="tripType" required>
+            <option value="hangout">Hang Out</option>
+            <option value="vacation">Vacation</option>
+            <option value="outing">Outing</option>
+        </select><br><br>
+
+        <label for="budget">Estimated Budget per Person:</label>
+        <input type="number" id="budget" name="budget" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="randomCode"></div>
+
+
+    <script>
+        function generateRandomCode() {
+            var randomCode = Math.floor(Math.random() * 16777215).toString(16);
+            document.getElementById("randomCode").innerHTML = "Send this code to your friends to invite them to your trip:" + randomCode;
+        }
+
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            generateRandomCode();
+        });
+    </script>
+</body>
+
+</html>

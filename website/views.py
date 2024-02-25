@@ -37,3 +37,8 @@ def profile_settings():
 @views.route('/trip')
 def trip():
     return render_template("trip.html")
+
+@views.route('/create_new')
+def create_new():
+    return render_template("create_new.html")
+#"<h1>Test</h1>"
