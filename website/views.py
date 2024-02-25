@@ -1,5 +1,8 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_user, login_required, logout_user, current_user
+from .models import PInfo, User
+import datetime, json
+from . import db
 
 views = Blueprint('views', __name__)
 
@@ -11,16 +14,26 @@ def home():
 @views.route('/personal_info', methods=['GET', 'POST'])
 def personal_info():
     if request.method == 'POST':
-        bdate = request.form.get('birthday')
-        city = request.form.get('city')
+        birthday = datetime.datetime.strptime(request.form['birthday'], "%Y-%m-%d")
+        location = request.form.get('city')
         gender = request.form.get('gender')
-        preferences = request.form.getlist('preferences[]')
+        preferences = json.dumps(request.form.getlist('preferences[]'))
         diet = request.form.get('diet')
-        print(bdate)
-        print(city)
-        print(gender)
-        print(preferences)
-        print(diet)
+
+        new_pinfo= PInfo(
+            user_id = current_user.id, 
+            birthday=birthday,
+            location=location, 
+            gender=gender, 
+            preferences=preferences,
+            diet=diet
+        )
+        db.session.add(new_pinfo)
+        db.session.commit()
+
+        return redirect(url_for('views.dashboard'))
+
+
 
     return render_template("get_personal_info.html", user=current_user)
 #"<h1>Test</h1>"

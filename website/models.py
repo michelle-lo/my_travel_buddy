@@ -16,15 +16,16 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(150))
     last_name = db.Column(db.String(150))
     notes = db.relationship('Note') #Note is the other class, capital needed
-    
+    pinfo = db.relationship('PInfo')
 
     def __repr__(self):
         return f"User(id={self.id}, email={self.email}, password={self.password}, first_name={self.first_name}, last_name={self.last_name})"
     
-# class PInfo(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     email = db.Column(db.String(150), unique=True)
-#     password = db.Column(db.String(150))
-#     first_name = db.Column(db.String(150))
-#     last_name = db.Column(db.String(150))
-#     notes = db.relationship('Note') #Note is the other class, capital needed
+class PInfo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    birthday = db.Column(db.Date)
+    location = db.Column(db.String(100))
+    gender = db.Column(db.String(10))
+    preferences = db.Column(db.Text)
+    diet = db.Column(db.String(20))
