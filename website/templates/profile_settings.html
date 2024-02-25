@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>User Settings</title>
+</head>
+
+<body>
+
+<form action="/update_profile" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="John Doe" required>
+
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday" value="1990-01-01" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" value="30" required>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" value="New York" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
+
+    <label for="preferences">Select Preferences:</label>
+    <select id="preferences" name="preferences []" multiple>
+        <option value="creativity">Creativity</option>
+        <option value="outdoor">Outdoor</option>
+        <option value="relaxation">Relaxation</option>
+        <option value="adventure">Adventure</option>
+        <option value="culture">Culture</option>
+        <option value="food">Food</option>
+        <option value="nightlife">Nightlife</option>
+        <option value="shopping">Shopping</option>
+        <option value="sports">Sports</option>
+        <option value="entertainment and media">Entertainment and Media</option>
+        <option value="learning">Learning</option>
+        <option value="sight-seeing">Sight-seeing</option>
+        <option value="gaming and puzzles">Gaming and Puzzles</option>
+    
+    </select>
+
+    <label for="diatery restrictions">Select your diatery restrictions:</label>
+    <select id="diet" name="diet">
+        <option value="none">None</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+        <option value="gluten-free">Gluten-free</option>
+        <option value="lactose-free">Lactose-free</option>
+        <option value="halal">Halal</option>
+        <option value="kosher">Kosher</option>
+        <option value="other">Other</option>
+    </select>
+
+    <button type="submit">Save</button>
+</form>
+</html>
