@@ -7,17 +7,21 @@
         /* Add your custom CSS styles here */
     </style>
 </head>
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}" />
+
 <body>
+    <form action="{{ url_for('views.profile') }}" method="get">
+        <button class=loginBtn type="submit" value="profile">Profile</button>
+    </form>
     <form action="{{ url_for('views.new_trip') }}" method="get">
-        <button type="submit" value="new_trip">New Trip</button>
+    <form action="{{ url_for('views.new_trip') }}" method="get">
+        <button class=loginBtn type="submit" value="new_trip">New Trip</button>
     </form>
 
-    <form action="{{ url_for('views.profile') }}" method="get">
-        <button type="submit" value="profile">Profile</button>
     </form>
     <!-- <button id="profile">Profile</button> -->
     <h1>My Travel Buddy Dashboard</h1>
-    Hello {{ user.first_name }}
+    <h2>Hello {{ user.first_name }}</h2>
     <div id="calendar">
         <!-- Here we are using attributes like
                 cellspacing and cellpadding -->
@@ -28,7 +32,7 @@
         
         <!-- cellspacing is used to specify the 
                 space between the cell and its contents -->
-        <h2 id = 'currentMonthYear' align="center" style="color: red;">
+        <h2 id='currentMonthYear' align="center" style="color: rgb(255, 255, 255);">
             <script>
                 const months = [
                         'January', 'February', 'March', 'April',
@@ -44,7 +48,7 @@
         </h2>
         <br />
         
-        <table bgcolor="lightgrey" align="center" cellspacing="21" cellpadding="21">
+        <table class=calendar align="center" cellspacing="21" cellpadding="21">
         
             <!-- The tr tag is used to enter 
                     rows in the table -->
@@ -140,7 +144,7 @@
         </table>
     </div>
     
-    <div id="trips">
+    <div id="trips" class=tripbtn>
         <h2>Trips</h2>
         <!-- Add buttons for your trips here -->
         <script>
@@ -152,6 +156,7 @@
                 const tripButton = document.createElement("button");
                 tripButton.textContent = "Trip " + i;
                 document.getElementById("trips").appendChild(tripButton);
+                tripButton.classList.add("tripbtn");
             }
         </script>
     </div>

@@ -14,7 +14,7 @@ body {
 
 form {
     background: rgba(255, 208, 180, 0.808);
-    height: 580px;
+    height: 400px;
     width: 350px;
     padding: 75px 50px;
     position: absolute;
@@ -25,18 +25,9 @@ form {
 
 h1 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     color: #fff;
     font-size: 40px;
-}
-
-h2{
-    text-align: justify;
-    color: #fff;
-    font-size: 20px;
-    width: 100%
-    
-
 }
 
 .textbox {
@@ -60,7 +51,7 @@ h2{
 }
 
 .loginBtn {
-    margin-top: 20px;
+    margin-top: 15px;
     height: 45px;
     width: 100%;
     border: none;
@@ -74,6 +65,5 @@ h2{
 
 .signup {
     color: white;
-    text-align: justify;
+    text-align: center;
 }
-
