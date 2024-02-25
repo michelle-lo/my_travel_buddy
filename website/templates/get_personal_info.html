@@ -10,14 +10,16 @@
     <form method="POST">
         <h1>Profile Creation</h1>
         <!-- <link rel="stylesheet" href="{{ url_for('static', filename='login_page.css') }}" /> -->
-
+        <h2>Welcome {{ user.first_name }}.</h2>
         <div class="textbox">
+            <label>Enter your birthday </label>
             <input type="date" id="birthday" name="birthday" placeholder="Enter Birthday">
             </input>
         </div>
 
         <div class="textbox">
-            <input type="text" id="country" name="country" placeholder="Enter Country">
+            <label>Enter your location </label>
+            <input type="text" id="city" name="city" placeholder="Enter city">
             </input>
         </div>
 
@@ -31,6 +33,12 @@
         </div>
 
         <div class="textbox">
+            <!-- <form action="/personal_info" method="post">
+                <label for="preferences">Select Preferences:</label><br>
+                <input type="checkbox" id="creativity" name="preferences[]" value="creativity">
+                <label for="creativity">Creativity</label><br>
+                <input type="checkbox" id="outdoor" name="preferences[]" value="outdoor">
+                <label for="outdoor">Outdoor</label><br>
             <label for="preferences">Select Preferences:</label>
             <select id="preferences" name="preferences []" multiple>
                 <option value="creativity">Creativity</option>
@@ -47,7 +55,23 @@
                 <option value="sight-seeing">Sight-seeing</option>
                 <option value="gaming and puzzles">Gaming and Puzzles</option>
 
-            </select>
+            </select> -->
+
+            <div class="textbox">
+                <!-- <form action="/personal_info" method="post"> -->
+                  <label for="preferences">Select Preferences:</label><br>
+                  
+                  <input type="checkbox" id="creativity" name="preferences[]" value="creativity">
+                  <label for="creativity">Creativity</label><br>
+                  
+                  <input type="checkbox" id="outdoor" name="preferences[]" value="outdoor">
+                  <label for="outdoor">Outdoor</label><br>
+
+                  <!-- Add more checkboxes for other options -->
+                  <!-- <input type="submit" value="Submit"> -->
+                <!-- </form> -->
+              </div>
+              
             <!-- <input type="submit" value="Submit"> -->
         </div>
         <div class="textbox">

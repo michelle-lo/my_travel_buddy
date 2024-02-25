@@ -17,7 +17,7 @@ def login():
             if user.password == password:
                 flash('Logged in successfully', category='success')
                 login_user(user, remember=True)
-                return redirect(url_for('views.dashboard'))
+                return redirect(url_for('views.personal_info'))
             else:
                 flash('Incorrect password, try again', category='error')
         else:
@@ -60,7 +60,7 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
                             
-            return redirect(url_for('views.home'))
+            return redirect(url_for('views.personal_info'))
 
         
         
